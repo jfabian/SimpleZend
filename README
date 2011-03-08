@@ -1,0 +1,33 @@
+Itroduction
+===========
+
+This library, usage Simplepie for Zend Framework. The current version is the 0.1, for Zend Framework 1.11 and Simplepie 1.2.
+
+Usage
+=====
+
+In your Controller:
+
+<?php
+    require_once 'simplezend/simplepie.php';
+    $feed = new SimplePie('http://news.google.com.pe/news?pz=1&cf=all&ned=es_pe&hl=es&topic=h&num=3&output=rss');
+    $feed->init();
+    $this->view->title = $feed->get_title();
+    $this->view->items = $feed->get_items();
+    parent::init();
+?>
+
+In your View:
+
+<?php
+
+foreach($this->items as $item)
+{
+    echo $item->get_content();
+}
+?>
+
+Install
+=======
+
+    * Download SimpleZend, decompress and copy in /library. 
